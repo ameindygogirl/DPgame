@@ -5,11 +5,6 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPgame", "DPgame.csproj", "{A7CF3B86-554B-439D-BDA5-6F0CECC7998B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B84EF57C-D480-4462-BE32-6D0E399136A9}"
-	ProjectSection(SolutionItems) = preProject
-		GameCharacter.cs = GameCharacter.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

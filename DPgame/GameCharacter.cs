@@ -2,18 +2,11 @@
 
 public abstract class GameCharacter
 {
-    protected string name;
     protected int healthPoints;
     protected int attackSpeed;
     protected int maxDamage;
     protected int minDamage;
     protected double hitChance;
-
-    public string Name
-    {
-        get { return name; }
-        set { name = value; }
-    }
 
     public int HealthPoints
     {
@@ -45,13 +38,23 @@ public abstract class GameCharacter
         set { hitChance = value; }
     }
 
-    public boolean attack(DungeonCharacter d)
+    public GameCharacter(int health, int speed, int max, int min, double hit)
+    {
+        //this.name = "";
+        this.healthPoints = health;
+        this.attackSpeed = speed;
+        this.maxDamage = max;
+        this.minDamage = min;
+        this.hitChance = hit;
+    }
+
+    public bool attack(GameCharacter d)
     {
         if (hitChance >= new Random().nextDouble())
         {
             int hit = new Random().nextInt(maxDamage - minDamage + 1) + minDamage;
-            int result = this.getHealth() - hit;
-            this.setHealth(result);
+            int result = this.HealthPoints - hit;
+            this.HealthPoints = result;
             Console.WriteLine("Attack was successful.");
             return true;
         }
