@@ -8,5 +8,15 @@ namespace DPgame
 {
     public class DarlingDuckling: GameCharacter
     {
+        public DarlingDuckling()
+        {
+            Name = "Darling Duckling";
+            HealthPoints = 100;
+            //AttackSpeed = ;
+            //MaxDamage = ;
+            //MinDamage = ;
+            //HitChance = ;
+            //DefenseChance = ;
+        }
     }
 }

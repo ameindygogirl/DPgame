@@ -8,5 +8,15 @@ namespace DPgame
 {
     public class FierceLion: GameCharacter
     {
+        public FierceLion()
+        {
+            Name = "Fierce Lion";
+            HealthPoints = 100;
+            //AttackSpeed = ;
+            //MaxDamage = ;
+            //MinDamage = ;
+            //HitChance = ;
+            //DefenseChance = ;
+        }
     }
 }

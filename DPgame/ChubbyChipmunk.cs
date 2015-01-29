@@ -8,5 +8,15 @@ namespace DPgame
 {
     public class ChubbyChipmunk: GameCharacter
     {
+        public ChubbyChipmunk()
+        {
+            Name = "Chubby Chipmunk";
+            HealthPoints = 100;
+            //AttackSpeed = ;
+            //MaxDamage = ;
+            //MinDamage = ;
+            //HitChance = ;
+            //DefenseChance = ;
+        }
     }
 }

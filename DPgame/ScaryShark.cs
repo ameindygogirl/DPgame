@@ -8,5 +8,15 @@ namespace DPgame
 {
     public class ScaryShark: GameCharacter
     {
+        public ScaryShark()
+        {
+            Name = "Scary Shark";
+            HealthPoints = 100;
+            //AttackSpeed = ;
+            //MaxDamage = ;
+            //MinDamage = ;
+            //HitChance = ;
+            //DefenseChance = ;
+        }
     }
 }

@@ -8,5 +8,15 @@ namespace DPgame
 {
     public class TinyTurtle: GameCharacter
     {
+        public TinyTurtle()
+        {
+            Name = "Tiny Turtle";
+            HealthPoints = 100;
+            //AttackSpeed = ;
+            //MaxDamage = ;
+            //MinDamage = ;
+            //HitChance = ;
+            //DefenseChance = ;
+        }
     }
 }

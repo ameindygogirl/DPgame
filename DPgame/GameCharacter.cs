@@ -2,11 +2,19 @@
 
 public abstract class GameCharacter
 {
+    protected string name;
     protected int healthPoints;
     protected int attackSpeed;
     protected int maxDamage;
     protected int minDamage;
     protected double hitChance;
+    protected double defenseChance;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
 
     public int HealthPoints
     {
@@ -38,29 +46,39 @@ public abstract class GameCharacter
         set { hitChance = value; }
     }
 
-    public GameCharacter(int health, int speed, int max, int min, double hit)
+    public double DefenseChance
     {
-        //this.name = "";
-        this.healthPoints = health;
-        this.attackSpeed = speed;
-        this.maxDamage = max;
-        this.minDamage = min;
-        this.hitChance = hit;
+        get { return defenseChance; }
+        set { defenseChance = value; }
     }
 
-    public bool attack(GameCharacter d)
+    public string attack(GameCharacter d)
     {
-        if (hitChance >= new Random().nextDouble())
+        if (hitChance >= new Random().NextDouble())
         {
-            int hit = new Random().nextInt(maxDamage - minDamage + 1) + minDamage;
+            int hit = new Random().Next(maxDamage - minDamage + 1) + minDamage;
             int result = this.HealthPoints - hit;
             this.HealthPoints = result;
-            Console.WriteLine("Attack was successful.");
+            return "Attack was successful.";
+            
+        }
+        else
+        {
+            return "The attack was not successful.";
+            
+        }
+    }
+
+    public bool defense(GameCharacter d)
+    {
+        if (defenseChance >= new Random().NextDouble())
+        {           
+            Console.WriteLine("Defense was successful.");
             return true;
         }
         else
         {
-            Console.WriteLine("The attack was not successful.");
+            Console.WriteLine("The defense was not successful.");
             return false;
         }
     }

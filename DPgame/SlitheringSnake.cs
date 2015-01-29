@@ -8,5 +8,15 @@ namespace DPgame
 {
     public class SlitheringSnake: GameCharacter
     {
+        public SlitheringSnake()
+        {
+            Name = "Slithering Snake";
+            HealthPoints = 100;
+            //AttackSpeed = ;
+            //MaxDamage = ;
+            //MinDamage = ;
+            //HitChance = ;
+            //DefenseChance = ;
+        }
     }
 }

@@ -15,6 +15,13 @@ namespace DPgame
         public Form1()
         {
             InitializeComponent();
+            GameCharacterFactory hf = new Hero();
+            GameCharacter hero = hf.chooseCharacter("Fuzzy Puppy");
+            //label1.Text = hero.Name;
+
+            GameCharacterFactory mf = new Monster();
+            GameCharacter monster = mf.chooseCharacter("Crooked Vulture");
+            label1.Text = monster.attack(hero).ToString();
         }
     }
 }
