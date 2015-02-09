@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DPgame
 {
-    public partial class Form1 : Form
+    public partial class GameBoard : Form
     {
-        public Form1()
+        public GameBoard()
         {
             InitializeComponent();
             GameCharacterFactory hf = new Hero();
@@ -22,6 +22,12 @@ namespace DPgame
             GameCharacterFactory mf = new Monster();
             GameCharacter monster = mf.chooseCharacter("Crooked Vulture");
             label1.Text = monster.attack(hero).ToString();
+        }
+
+        private void btnHeros_Click(object sender, EventArgs e)
+        {
+            PickHeros heroPicker = new PickHeros();
+            heroPicker.Show();
         }
     }
 }
