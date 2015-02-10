@@ -1,90 +1,85 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace DPgame
+public abstract class GameCharacter
 {
-    public abstract class GameCharacter
+    protected string name;
+    protected int healthPoints;
+    protected int attackSpeed;
+    protected int maxDamage;
+    protected int minDamage;
+    protected double hitChance;
+    protected double defenseChance;
+
+    public string Name
     {
-        protected string name;
-        protected int totalHP;
-        protected int hp;
-        protected int speed;
-        protected int maxDamage;
-        protected int minDamage;
-        protected double hitChance;
-        protected double defense;
-        protected ActionList actions;
+        get { return name; }
+        set { name = value; }
+    }
 
-        public string Name
+    public int HealthPoints
+    {
+        get { return healthPoints; }
+        set { healthPoints = value; }
+    }
+
+    public int AttackSpeed
+    {
+        get { return attackSpeed; }
+        set { attackSpeed = value; }
+    }
+
+    public int MaxDamage
+    {
+        get { return maxDamage; }
+        set { maxDamage = value; }
+    }
+
+    public int MinDamage
+    {
+        get { return minDamage; }
+        set { minDamage = value; }
+    }
+
+    public double HitChance
+    {
+        get { return hitChance; }
+        set { hitChance = value; }
+    }
+
+    public double DefenseChance
+    {
+        get { return defenseChance; }
+        set { defenseChance = value; }
+    }
+
+    public string attack(GameCharacter d)
+    {
+        if (hitChance >= new Random().NextDouble())
         {
-            get { return name; }
-            set { name = value; }
+            int hit = new Random().Next(maxDamage - minDamage + 1) + minDamage;
+            int result = this.HealthPoints - hit;
+            this.HealthPoints = result;
+            return "Attack was successful.";
+            
         }
-
-        public int TotalHP
+        else
         {
-            get { return totalHP; }
-            set { totalHP = value; }
+            return "The attack was not successful.";
+            
         }
+    }
 
-        public int HP
-        {
-            get { return HP; }
-            set { HP = value; }
+    public bool defense(GameCharacter d)
+    {
+        if (defenseChance >= new Random().NextDouble())
+        {           
+            Console.WriteLine("Defense was successful.");
+            return true;
         }
-
-        public int Speed
+        else
         {
-            get { return speed; }
-            set { speed = value; }
+            Console.WriteLine("The defense was not successful.");
+            return false;
         }
-
-        public int MaxDamage
-        {
-            get { return maxDamage; }
-            set { maxDamage = value; }
-        }
-
-        public int MinDamage
-        {
-            get { return minDamage; }
-            set { minDamage = value; }
-        }
-
-        public double HitChance
-        {
-            get { return hitChance; }
-            set { hitChance = value; }
-        }
-
-        public double Defense
-        {
-            get { return defense; }
-            set { defense = value; }
-        }
-        public ActionList Actions
-        {
-            get { return actions; }
-            set { actions = value; }
-        }
-
-        public abstract Action takeAction();
-        public abstract void useSpecial(GameCharacter target);
-
-        /*public bool defense(GameCharacter d)
-        {
-            if (defenseChance >= new Random().NextDouble())
-            {
-                Console.WriteLine("Defense was successful.");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("The defense was not successful.");
-                return false;
-            }
-        }*/
     }
 }
