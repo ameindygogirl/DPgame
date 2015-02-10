@@ -15,16 +15,13 @@ namespace DPgame
         public GameBoard()
         {
             InitializeComponent();
-            GameCharacterFactory hf = new HeroFactory();
-            GameCharacter hero = hf.createCharacter();
+            GameCharacterFactory hf = new Hero();
+            GameCharacter hero = hf.chooseCharacter("Fuzzy Puppy");
             //label1.Text = hero.Name;
 
-            GameCharacterFactory mf = new MonsterFactory();
-            GameCharacter monster = mf.createCharacter();
-            Action attack = new AttackAction();
-            attack.Target = hero;
-            attack.Primary = monster;
-            label1.Text = attack.ToString();
+            GameCharacterFactory mf = new Monster();
+            GameCharacter monster = mf.chooseCharacter("Crooked Vulture");
+            label1.Text = monster.attack(hero).ToString();
         }
 
         private void btnHeros_Click(object sender, EventArgs e)
