@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace DPgame
+{
+    public class MonsterFactory: GameCharacterFactory
+    {
+        public override GameCharacter createCharacter()
+        {
+            GameCharacter monster = null;
+            double random = new Random().NextDouble();
+            int pick = (int) (random * 6);
+
+            switch (pick)
+            {
+                case 1:
+                    monster = new CrookedVulture();
+                    break;
+                case 2:
+                    monster = new DeadlyDinosaur();
+                    break;
+                case 3:
+                    monster = new FierceLion();
+                    break;
+                case 4:
+                    monster = new ScaryShark();
+                    break;
+                case 5:
+                    monster = new SlitheringSnake();
+                    break;
+                case 6:
+                    monster = new StealthySpider();
+                    break;
+            }
+            return monster;
+        }
+    }
+}

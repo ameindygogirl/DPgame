@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace DPgame
 {
-    public class CrookedVulture: GameCharacter
+    public class CrookedVulture: Monster
     {
         public CrookedVulture()
         {
             Name = "Crooked Vulture";
-            HealthPoints = 70;
-            AttackSpeed = 5;
-            MaxDamage = 30;
-            MinDamage = 15;
-            HitChance = .8;
-            //DefenseChance = ;
+            TotalHP = 100;
+            HP = TotalHP;
+            Speed = 20;
+            MaxDamage = 50;
+            MinDamage = 20;
+            HitChance = 90;
+            Defense = 5;
+        }
+
+        public override void useSpecial(GameCharacter target)
+        {
+            throw new NotImplementedException();
         }
     }
 }
