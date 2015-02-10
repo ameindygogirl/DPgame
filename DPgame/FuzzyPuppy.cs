@@ -6,23 +6,17 @@ using System.Threading.Tasks;
 
 namespace DPgame
 {
-    public class FuzzyPuppy : Hero
+    public class FuzzyPuppy : GameCharacter
     {
         public FuzzyPuppy()
         {
             Name = "Fuzzy Puppy";
-            TotalHP = 100;
-            HP = TotalHP;
-            Speed = 20;
-            MaxDamage = 50;
-            MinDamage = 20;
-            HitChance = 90;
-            Defense = 5;
-        }
-        
-        public override void useSpecial(GameCharacter target)
-        {
-            throw new NotImplementedException();
+            HealthPoints = 100;
+            AttackSpeed = 8;
+            MaxDamage = 90;
+            MinDamage = 40;
+            HitChance = .4;
+            //DefenseChance = ;
         }
     }
 }

@@ -8,6 +8,12 @@ namespace DPgame
 {
     public abstract class GameCharacterFactory
     {
-        public abstract GameCharacter createCharacter();
+        public GameCharacter chooseCharacter(string type)
+        {
+            GameCharacter gc;
+            gc = createCharacter(type);
+            return gc;
+        }
+        protected abstract GameCharacter createCharacter(string type);
     }
 }

@@ -44,17 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action.cs" />
-    <Compile Include="ActionList.cs" />
-    <Compile Include="AttackAction.cs" />
-    <Compile Include="Battle.cs" />
-    <Compile Include="BattleTester.cs" />
     <Compile Include="ChubbyChipmunk.cs" />
     <Compile Include="CrookedVulture.cs" />
     <Compile Include="CuddlyKitten.cs" />
     <Compile Include="DarlingDuckling.cs" />
     <Compile Include="DeadlyDinosaur.cs" />
-    <Compile Include="DefendAction.cs" />
     <Compile Include="FierceLion.cs" />
     <Compile Include="GameBoard.cs">
       <SubType>Form</SubType>
@@ -65,18 +59,8 @@
     <Compile Include="FuzzyPuppy.cs" />
     <Compile Include="GameCharacter.cs" />
     <Compile Include="GameCharacterFactory.cs" />
-    <Compile Include="GameCharacterList.cs" />
-    <Compile Include="HealthPotion.cs" />
     <Compile Include="Hero.cs" />
-    <Compile Include="HeroFactory.cs" />
-    <Compile Include="HeroParty.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="ItemAction.cs" />
-    <Compile Include="ItemList.cs" />
     <Compile Include="Monster.cs" />
-    <Compile Include="MonsterFactory.cs" />
-    <Compile Include="MonsterParty.cs" />
-    <Compile Include="Party.cs" />
     <Compile Include="PickHeros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +71,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScaryShark.cs" />
     <Compile Include="SlitheringSnake.cs" />
-    <Compile Include="SpecialAction.cs" />
     <Compile Include="StealthySpider.cs" />
     <Compile Include="TinyTurtle.cs" />
     <Compile Include="WiseOwl.cs" />
