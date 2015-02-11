@@ -2,42 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DPgame
 {
-    public class Monster: GameCharacterFactory
+    public abstract class Monster: GameCharacter
     {
-        protected override GameCharacter createCharacter(string type)
+        public override Action takeAction()
         {
-            if(type.Equals("Fierce Lion"))
-            {
-                return new FierceLion();
-            }
-            else if(type.Equals("Slithering Snake"))
-            {
-                return new SlitheringSnake();
-            }
-            else if(type.Equals("Scary Shark"))
-            {
-                return new ScaryShark();
-            }
-            else if(type.Equals("Crooked Vulture"))
-            {
-                return new CrookedVulture();
-            }
-            else if(type.Equals("Stealthy Spider"))
-            {
-                return new StealthySpider();
-            }
-            else if(type.Equals("Deadly Dinosaur"))
-            {
-                return new DeadlyDinosaur();
-            }
-            else
-            {
-                return null;
-            }
+            double random = new Random().NextDouble();
+            int index = (int) (random * Actions.Count);
+
+            return Actions.getData(index);
         }
+        public override abstract void useSpecial(GameCharacter target);
     }
 }
