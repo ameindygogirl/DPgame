@@ -31,9 +31,10 @@ namespace DPgame
             DefendAction defend   = new DefendAction();
             AttackAction attack   = new AttackAction();
 
-            GameCharacter gc1 = makeHero.createCharacter();
-            GameCharacter gc2 = makeHero.createCharacter();
-            GameCharacter gc3 = makeHero.createCharacter();
+            //TODO Set createCharacter to user chosen character
+            GameCharacter gc1 = makeHero.createCharacter(0);
+            GameCharacter gc2 = makeHero.createCharacter(1);
+            GameCharacter gc3 = makeHero.createCharacter(2);
             
             alist.AddFirst(item);
             alist.AddFirst(special);

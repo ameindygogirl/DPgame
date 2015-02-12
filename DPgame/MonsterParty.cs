@@ -16,9 +16,9 @@ namespace DPgame
 
         public override void initParty()
         {
-            GameCharacter m1 = monsters.createCharacter();
-            GameCharacter m2 = monsters.createCharacter();
-            GameCharacter m3 = monsters.createCharacter();
+            GameCharacter m1 = monsters.createCharacter(new Random().Next(6)+1);
+            GameCharacter m2 = monsters.createCharacter(new Random().Next(6)+1);
+            GameCharacter m3 = monsters.createCharacter(new Random().Next(6)+1);
 
             Characters.AddFirst(m3);
             Characters.AddFirst(m2);

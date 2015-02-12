@@ -7,13 +7,11 @@ namespace DPgame
 {
     public class MonsterFactory: GameCharacterFactory
     {
-        public override GameCharacter createCharacter()
+        public override GameCharacter createCharacter(int selection)
         {
             Monster monster = null;
-            double random = new Random().NextDouble();
-            int pick = (int) (random * 6) + 1;
 
-            switch (pick)
+            switch (selection)
             {
                 case 1:
                     monster = new CrookedVulture();

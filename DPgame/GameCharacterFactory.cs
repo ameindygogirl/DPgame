@@ -8,6 +8,6 @@ namespace DPgame
 {
     public abstract class GameCharacterFactory
     {
-        public abstract GameCharacter createCharacter();
+        public abstract GameCharacter createCharacter(int selection);
     }
 }
