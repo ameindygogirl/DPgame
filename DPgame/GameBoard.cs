@@ -12,28 +12,35 @@ namespace DPgame
 {
     public partial class GameBoard : Form
     {
+        GameCharacterFactory hf;
+        GameCharacter hero;
+        GameCharacterFactory mf;
+        GameCharacter monster;
         public GameBoard()
         {
             InitializeComponent();
-            GameCharacterFactory hf = new HeroFactory();
-            GameCharacter hero = hf.createCharacter(1);
-            //label1.Text = hero.Name;
+            hf = new HeroFactory();
 
-            GameCharacterFactory mf = new MonsterFactory();
+            mf = new MonsterFactory();
 
-            GameCharacter monster = mf.createCharacter(new Random().Next(6) + 1);
-            Action attack = new AttackAction();
-            attack.Primary = hero;
-            attack.Target = monster;
-            label1.Text = attack.ToString();
+            monster = mf.createCharacter(new Random().Next(6) + 1);         
         }
 
         private void btnHeros_Click(object sender, EventArgs e)
         {
             PickHeros heroPicker = new PickHeros();
             heroPicker.ShowDialog();
-            int first = heroPicker.heros[0];
-            //int[] heroAra = heroPicker.Heros;
+
+            hero = hf.createCharacter(heroPicker.heros[0]);
+            battle();
+        }
+
+        private void battle()
+        {
+            Action attack = new AttackAction();
+            attack.Primary = hero;
+            attack.Target = monster;
+            label1.Text = attack.ToString();
         }
     }
 }

@@ -22,7 +22,8 @@ namespace DPgame
             Random rand = new Random();
             int randResult = rand.Next(3);
             if (randResult == 1)
-                baddies = new Party();
+            { }
+                //baddies = new Party();
             else
                 baddies = null;
 
