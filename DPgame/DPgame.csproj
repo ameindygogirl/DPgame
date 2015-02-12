@@ -105,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,6 +124,8 @@
     <Content Include="chipmunk.png" />
     <Content Include="duck.png" />
     <Content Include="kitten.png" />
+    <None Include="tinyTurtle.png" />
+    <None Include="owl.png" />
     <Content Include="puppy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
