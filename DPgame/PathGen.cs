@@ -27,7 +27,7 @@ namespace DPgame
             this.x = 5;
             this.y = 5;
             this.grid = new Room[x, y];
-            int floor = (x * y) / 4;
+            int floor = (x * y) / 3;
             int ceil = floor * 2;
             this.goalRooms = rand.Next(floor, ceil);
 
@@ -39,7 +39,7 @@ namespace DPgame
             this.x = 8;
             this.y = 8;
             this.grid = new Room[x, y];
-            int floor = (x * y) / 4;
+            int floor = (x * y) / 3;
             int ceil = floor * 2;
             this.goalRooms = rand.Next(floor, ceil);
 
@@ -51,7 +51,7 @@ namespace DPgame
             this.x = 12;
             this.y = 12;
             this.grid = new Room[x, y];
-            int floor = (x * y) / 4;
+            int floor = (x * y) / 3;
             int ceil = floor * 2;
             this.goalRooms = rand.Next(floor, ceil);
 
@@ -62,11 +62,14 @@ namespace DPgame
             this.tempRooms = 0;
             this.entrance = new Room();
             this.entrance.Entrance = true;
-            this.grid[0, 0] = this.entrance;
-            
+            Random rand = new Random();
+            int i = rand.Next(this.x);
+            int j = rand.Next(this.y);
+
+
             while (this.tempRooms < this.goalRooms)
             {
-                buildPath(this.entrance, 0, 0);
+                buildPath(this.entrance, i, j);
             }
 
             return this.entrance;
@@ -74,117 +77,114 @@ namespace DPgame
 
         private void buildPath(Room cur, int i, int j)
         {
+            Random rand = new Random();
+            int r;
+            Room next;
+
+            this.grid[i, j] = cur;
+            
 
             if (tempRooms < goalRooms)
             {
-                Random rand = new Random();
-
-                int r = rand.Next(3);
-                try
+                r = rand.Next(2);
+                if (r == 0 && isValidIndex(i + 1, j))
                 {
-                    if (this.grid[i + 1, j] == null && r == 0)
-                    {
-                        cur.North = new Room();
-                        this.grid[i + 1, j] = cur.North;
-                        this.tempRooms++;
-                        cur.North.South = cur;
-                        buildPath(cur.North, i + 1, j);
-                    }
-                    else if (!cur.hasNorth() && r == 0)
-                    {
-                        cur.North = this.grid[i + 1, j];
-                        cur.North.South = cur;
-                        buildPath(cur.North, i + 1, j);
-                    }
+                    next = attachNorth(cur, i, j);
+                    buildPath(next, i + 1, j);
                 }
-                    catch (IndexOutOfRangeException)
-                    {
-                        
-                    }
 
-                    try
-                    {
-                        if (tempRooms < goalRooms)
-                        {
-                            r = rand.Next(3);
-                            if (this.grid[i - 1, j] == null && r == 0)
-                            {
-                                cur.South = new Room();
-                                this.grid[i + 1, j] = cur.South;
-                                this.tempRooms++;
-                                cur.South.North = cur;
-                                buildPath(cur.South, i - 1, j);
-                            }
-                            else if (!cur.hasSouth() && r == 0)
-                            {
-                                cur.South = this.grid[i - 1, j];
-                                cur.South.North = cur;
-                                buildPath(cur.South, i - 1, j);
-                            }
-                        }
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        
-                    }
+                r = rand.Next(2);
+                if (r == 0 && isValidIndex(i - 1, j) && tempRooms < goalRooms)
+                {
+                    next = attachSouth(cur, i, j);
+                    buildPath(next, i - 1, j);
+                }
 
-                    try
-                    {
-                        if (tempRooms < goalRooms)
-                        {
-                            r = rand.Next(3);
-                            if (this.grid[i, j + 1] == null && r == 0)
-                            {
-                                cur.East = new Room();
-                                this.grid[i, j + 1] = cur.East;
-                                this.tempRooms++;
-                                cur.East.West = cur;
-                                buildPath(cur.East, i, j + 1);
-                            }
-                            else if (!cur.hasEast() && r == 0)
-                            {
-                                cur.East = this.grid[i, j + 1];
-                                cur.East.West = cur;
-                                buildPath(cur.East, i, j + 1);
-                            }
-                        }
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                       
-                    }
+                r = rand.Next(2);
+                if (r == 0 && isValidIndex(i, j + 1) && tempRooms < goalRooms)
+                {
+                    next = attachEast(cur, i, j);
+                    buildPath(next, i, j + 1);
+                }
 
-                    try
-                    {
-                        if (tempRooms < goalRooms)
-                        {
-                            r = rand.Next(3);
-                            if (this.grid[i, j - 1] == null && r == 0)
-                            {
-                                cur.West = new Room();
-                                this.grid[i, j - 1] = cur.West;
-                                this.tempRooms++;
-                                cur.West.East = cur;
-                                buildPath(cur.West, i, j - 1);
-                            }
-                            else if (!cur.hasWest() && r == 0)
-                            {
-                                cur.West = this.grid[i, j - 1];
-                                cur.West.East = cur;
-                                buildPath(cur.West, i, j - 1);
-                            }
-                        }
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        
-                    }
-                
+                r = rand.Next(2);
+                if (r == 0 && isValidIndex(i, j - 1) && tempRooms < goalRooms)
+                {
+                    next = attachWest(cur, i, j);
+                    buildPath(next, i, j - 1);
+                }
             }
             else
             {
                 cur.Exit = true;
             }
+            
+        }
+
+        private Room attachNorth(Room cur, int i, int j)
+        {
+            int n = i + 1;
+            Room next = getNext(n, j);
+            cur.North = next;
+            next.South = cur;
+            return next;
+        }
+
+        private Room attachSouth(Room cur, int i, int j)
+        {
+            int n = i - 1;
+            Room next = getNext(n, j);
+            cur.South = next;
+            next.North = cur;
+            return next;
+        }
+
+        private Room attachEast(Room cur, int i, int j)
+        {
+            int n = j + 1;
+            Room next = getNext(i, n);
+            cur.East = next;
+            next.West = cur;
+            return next;
+        }
+
+        private Room attachWest(Room cur, int i, int j)
+        {
+            int n = j - 1;
+            Room next = getNext(i, n);
+            cur.West = next;
+            next.East = cur;
+            return next;
+        }
+
+        private Room getNext(int n, int j)
+        {
+            Room next;
+            if (grid[n, j] != null)
+            {
+                next = grid[n, j];
+            }
+            else
+            {
+                next = new Room();
+                tempRooms++;
+            }
+
+            return next;
+        }
+
+        private bool isValidIndex(int i, int j)
+        {
+            try
+            {
+                this.grid[i, j] = this.grid[i, j];
+                return true;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
+
         }
 
         public void printPath()
