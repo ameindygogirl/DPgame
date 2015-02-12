@@ -31,8 +31,8 @@ namespace DPgame
 
         public int HP
         {
-            get { return HP; }
-            set { HP = value; }
+            get { return hp; }
+            set { hp = value; }
         }
 
         public int Speed

@@ -20,7 +20,7 @@ namespace DPgame
             ////label1.Text = hero.Name;
 
             GameCharacterFactory mf = new MonsterFactory();
-            //GameCharacter monster = mf.createCharacter();
+            GameCharacter monster = mf.createCharacter();
             //Action attack = new AttackAction();
             //attack.Primary = hero;
             //attack.Target = monster;
