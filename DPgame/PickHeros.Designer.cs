@@ -318,13 +318,17 @@
             // 
             // btnDone
             // 
+            this.btnDone.BackColor = System.Drawing.Color.Red;
             this.btnDone.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnDone.Enabled = false;
+            this.btnDone.FlatAppearance.BorderSize = 0;
+            this.btnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDone.Location = new System.Drawing.Point(595, 3);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(75, 24);
             this.btnDone.TabIndex = 20;
             this.btnDone.Text = "Done!";
-            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.UseVisualStyleBackColor = false;
             // 
             // PickHeros
             // 

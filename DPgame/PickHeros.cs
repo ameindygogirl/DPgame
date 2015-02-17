@@ -35,6 +35,7 @@ namespace DPgame
             {
                 pbThird.Image = DPgame.Properties.Resources.chipmunk;
                 heros[2] = 1;
+                enableDone();
             }
             else
             {
@@ -58,6 +59,7 @@ namespace DPgame
             {
                 pbThird.Image = DPgame.Properties.Resources.kitten;
                 heros[2] = 2;
+                enableDone();
             }
             else
             {
@@ -81,6 +83,7 @@ namespace DPgame
             {
                 pbThird.Image = DPgame.Properties.Resources.duck;
                 heros[2] = 3;
+                enableDone();
             }
             else
             {
@@ -104,6 +107,7 @@ namespace DPgame
             {
                 pbThird.Image = DPgame.Properties.Resources.puppy;
                 heros[2] = 4;
+                enableDone();
             }
             else
             {
@@ -127,6 +131,7 @@ namespace DPgame
             {
                 pbThird.Image = DPgame.Properties.Resources.tinyTurtle;
                 heros[2] = 5;
+                enableDone();
             }
             else
             {
@@ -150,11 +155,18 @@ namespace DPgame
             {
                 pbThird.Image = DPgame.Properties.Resources.owl;
                 heros[2] = 6;
+                enableDone();
             }
             else
             {
                 //Nothing occurs, all spots filled
             }
+        }
+
+        private void enableDone()
+        {
+            btnDone.BackColor = Color.Green;
+            btnDone.Enabled = true;
         }
     }
 }
